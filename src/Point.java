@@ -1,6 +1,3 @@
-/**
- * Created by ShlomiZ on 08/01/2018.
- */
 public class Point {
 
     private int row;
@@ -10,11 +7,13 @@ public class Point {
      * Default constructor.
      * Set the point to (-1,-1).
      */
-    public Point() {}
+    public Point() {
+    }
 
     /**
      * Constructor.
-     * @param ro The row of the point.
+     *
+     * @param ro     The row of the point.
      * @param column The column of the point.
      */
     public Point(int ro, int column) {
@@ -24,6 +23,7 @@ public class Point {
 
     /**
      * Copy constructor.
+     *
      * @param p the point to copy
      */
     public Point(Point p) {
@@ -33,6 +33,7 @@ public class Point {
 
     /**
      * Get the point row.
+     *
      * @return The point row.
      */
     public int getRow() {
@@ -41,6 +42,7 @@ public class Point {
 
     /**
      * Get the point column.
+     *
      * @return The point column.
      */
     public int getColumn() {
@@ -49,6 +51,7 @@ public class Point {
 
     /**
      * Set the point row.
+     *
      * @param r The row.
      */
     public void setRow(int r) {
@@ -57,6 +60,7 @@ public class Point {
 
     /**
      * Set the point column.
+     *
      * @param c The column.
      */
     public void setCol(int c) {
@@ -65,6 +69,7 @@ public class Point {
 
     /**
      * Set point.
+     *
      * @param r The row.
      * @param c The column.
      */
@@ -75,6 +80,7 @@ public class Point {
 
     /**
      * Equals override.
+     *
      * @param p The other point.
      * @return True if equals, false if not.
      */

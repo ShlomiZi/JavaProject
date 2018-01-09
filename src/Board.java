@@ -1,11 +1,6 @@
-/**
- * Created by ShlomiZ on 08/01/2018.
- */
 public class Board {
-
-    //Enum for representing players
-    enum Color
-    {
+    //enum for representing players
+    enum Color {
         EMPTY, BLACK, WHITE;
     }
 
@@ -20,7 +15,7 @@ public class Board {
      *
      * @param boardSize the board size
      */
-    public Board (int boardSize) {
+    public Board(int boardSize) {
         int i, j;
 
         this.lastPut = new Point(-3, -3);
@@ -47,7 +42,7 @@ public class Board {
      *
      * @param b the board to copy
      */
-    public Board (Board b) {
+    public Board(Board b) {
         int i, j;
 
         this.size = b.size;
@@ -81,7 +76,7 @@ public class Board {
     }
 
     public void put(Color player, int row, int col) {
-        
+
         int noMove = -2;
         //if point not on board.
         if (row < 0 || row >= size || col < 0 || col >= size) {
@@ -218,8 +213,8 @@ public class Board {
                 flipBetween(player, row, col, i, j);
             }
         }
-    }    
-    
+    }
+
 
     /**
      * Get the last put.
@@ -232,6 +227,7 @@ public class Board {
 
     /**
      * Equals override.
+     *
      * @param b The other board.
      * @return True if equals, false if not.
      */

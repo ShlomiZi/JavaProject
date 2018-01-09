@@ -1,6 +1,3 @@
-/**
- * Created by ShlomiZ on 08/01/2018.
- */
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,10 +10,11 @@ public class LocalHumanPlayer implements Player {
 
     /**
      * Constructor.
+     *
      * @param playerCol The player color.
-     * @param b The game board.
-     * @param rul The game rules.
-     * @param disp The display format.
+     * @param b         The game board.
+     * @param rul       The game rules.
+     * @param disp      The display format.
      */
     public LocalHumanPlayer(Board.Color playerCol, Board b, Rules rul, Display disp) {
         this.color = playerCol;
@@ -87,5 +85,6 @@ public class LocalHumanPlayer implements Player {
         return true;
     }
 
-    public void endPlay() {}
+    public void endPlay() {
+    }
 }

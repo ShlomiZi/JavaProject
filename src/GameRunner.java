@@ -1,6 +1,3 @@
-/**
- * Created by ShlomiZ on 09/01/2018.
- */
 public class GameRunner {
 
     private Board board;

@@ -1,10 +1,4 @@
-/**
- * Created by ShlomiZ on 09/01/2018.
- */
 public class ConsoleDisplay implements Display {
-
-    public ConsoleDisplay() {}
-
     public void announceWinner(Board.Color winner) {
 
         if (winner == Board.Color.BLACK) {

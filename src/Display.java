@@ -1,6 +1,3 @@
-/**
- * Created by ShlomiZ on 08/01/2018.
- */
 public interface Display {
 
     void announceWinner(Board.Color winner);

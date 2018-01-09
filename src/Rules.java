@@ -1,6 +1,3 @@
-/**
- * Created by ShlomiZ on 08/01/2018.
- */
 public interface Rules {
     //Enum for representing players
     java.util.ArrayList<Point> whereCanPut(Board b, Board.Color c);

@@ -1,6 +1,7 @@
 /**
  * Created by ShlomiZ on 08/01/2018.
  */
+
 import java.util.ArrayList;
 
 
@@ -17,6 +18,7 @@ public class RegularRules implements Rules {
 
     /**
      * Check where the player can put.
+     *
      * @param b The game board.
      * @param c The player color.
      * @return The answer vector of possible moves.
@@ -44,6 +46,7 @@ public class RegularRules implements Rules {
 
     /**
      * Tell who the winner.
+     *
      * @return The winner color.
      */
     public Board.Color winner(Board b) {
@@ -61,8 +64,9 @@ public class RegularRules implements Rules {
 
     /**
      * Get the player score.
+     *
      * @param player The player.
-     * @param b The game board.
+     * @param b      The game board.
      * @return The score of the player.
      */
     public int getScore(Board.Color player, Board b) {
@@ -89,16 +93,12 @@ public class RegularRules implements Rules {
 
     /**
      * Check if game ended before finished.
+     *
      * @return The end game bool.
      */
-    public boolean getEndGame(){
+    public boolean getEndGame() {
         return this.endGame;
     }
-
-
-
-
-
 
 
     private void checkSurrounding(Board board, Board.Color player, int row, int col, ArrayList<Point> moves) {
