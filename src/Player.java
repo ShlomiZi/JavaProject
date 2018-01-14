@@ -24,12 +24,12 @@ public interface Player {
      *
      * @return The player color.
      */
-    Board.Color getColor();
+    PlayerColor getColor();
 
     /**
      * Set the color of the player.
      *
      * @param newColor The new color.
      */
-    void setColor(Board.Color newColor);
+    void setColor(PlayerColor newColor);
 }

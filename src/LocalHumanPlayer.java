@@ -5,7 +5,7 @@ public class LocalHumanPlayer implements Player {
 
     private Board board;
     private Rules rules;
-    private Board.Color color;
+    private PlayerColor color;
     private Display display;
 
     /**
@@ -16,7 +16,7 @@ public class LocalHumanPlayer implements Player {
      * @param rul       The game rules.
      * @param disp      The display format.
      */
-    public LocalHumanPlayer(Board.Color playerCol, Board b, Rules rul, Display disp) {
+    public LocalHumanPlayer(PlayerColor playerCol, Board b, Rules rul, Display disp) {
         this.color = playerCol;
         this.board = b;
         this.rules = rul;
@@ -69,11 +69,11 @@ public class LocalHumanPlayer implements Player {
         return choice;
     }
 
-    public Board.Color getColor() {
+    public PlayerColor getColor() {
         return this.color;
     }
 
-    public void setColor(Board.Color newColor) {
+    public void setColor(PlayerColor newColor) {
         this.color = newColor;
     }
 

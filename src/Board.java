@@ -1,13 +1,15 @@
-public class Board {
-    //enum for representing players
-    enum Color {
-        EMPTY, BLACK, WHITE;
-    }
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
+import java.io.IOException;
+
+public class Board extends GridPane {
     //class members
     private int size;
     private Point lastPut;
-    private Color[][] board;
+    private PlayerColor[][] board;
 
     /**
      * Board constructor.
@@ -20,20 +22,20 @@ public class Board {
 
         this.lastPut = new Point(-3, -3);
         this.size = boardSize;
-        this.board = new Color[size][size];
+        this.board = new PlayerColor[size][size];
 
         //initializing the board with empty cells.
         for (i = 0; i < size; i++) {
             for (j = 0; j < size; j++) {
-                this.board[i][j] = Color.EMPTY;
+                this.board[i][j] = PlayerColor.EMPTY;
             }
         }
 
         //initializing starting position.
-        board[(size / 2) - 1][size / 2] = Color.BLACK;
-        board[size / 2][(size / 2) - 1] = Color.BLACK;
-        board[(size / 2) - 1][(size / 2) - 1] = Color.WHITE;
-        board[size / 2][size / 2] = Color.WHITE;
+        board[(size / 2) - 1][size / 2] = PlayerColor.BLACK;
+        board[size / 2][(size / 2) - 1] = PlayerColor.BLACK;
+        board[(size / 2) - 1][(size / 2) - 1] = PlayerColor.WHITE;
+        board[size / 2][size / 2] = PlayerColor.WHITE;
     }
 
     /**
@@ -71,11 +73,11 @@ public class Board {
      * @param col The column.
      * @return The square.
      */
-    public Color getSquare(int row, int col) {
+    public PlayerColor getSquare(int row, int col) {
         return board[row][col];
     }
 
-    public void put(Color player, int row, int col) {
+    public void put(PlayerColor player, int row, int col) {
 
         int noMove = -2;
         //if point not on board.
@@ -89,11 +91,11 @@ public class Board {
         //update lastPut.
         lastPut.setPoint(row, col);
         int i, j;
-        Color enemy;
-        if (player == Color.BLACK) {
-            enemy = Color.WHITE;
+        PlayerColor enemy;
+        if (player == PlayerColor.BLACK) {
+            enemy = PlayerColor.WHITE;
         } else {
-            enemy = Color.BLACK;
+            enemy = PlayerColor.BLACK;
         }
 
 
@@ -249,7 +251,7 @@ public class Board {
         return true;
     }
 
-    private void flipBetween(Color player, int i1, int j1, int i2, int j2) {
+    private void flipBetween(PlayerColor player, int i1, int j1, int i2, int j2) {
         int temp;
         //if same row.
         if (i1 == i2) {
@@ -308,6 +310,29 @@ public class Board {
                     this.board[i1][j1] = player;
                     i1++;
                     j1--;
+                }
+            }
+        }
+    }
+
+    /**
+     * Draw the board.
+     */
+    public void draw() {
+        this.getChildren().clear();
+        int height = (int) this.getPrefHeight();
+        int cellRadius = (height / board.length) / 2;
+
+        //loop on the board.
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                //if cell is black.
+                if (board[i][j] == PlayerColor.BLACK) {
+                    this.add(new Circle(cellRadius, Color.BLACK), j, i);
+                }
+                //if cell is white.
+                else if (board[i][j] == PlayerColor.WHITE) {
+                    this.add(new Circle(cellRadius, Color.WHITE), j, i);
                 }
             }
         }

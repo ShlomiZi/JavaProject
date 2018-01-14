@@ -1,12 +1,12 @@
 public class ConsoleDisplay implements Display {
-    public void announceWinner(Board.Color winner) {
+    public void announceWinner(PlayerColor winner) {
 
-        if (winner == Board.Color.BLACK) {
+        if (winner == PlayerColor.BLACK) {
             System.out.println();
             System.out.println("X IS THE WINNER");
             System.out.println();
 
-        } else if (winner == Board.Color.WHITE) {
+        } else if (winner == PlayerColor.WHITE) {
             System.out.println();
             System.out.println("O IS THE WINNER");
             System.out.println();
@@ -20,7 +20,7 @@ public class ConsoleDisplay implements Display {
 
 
     public void showBoard(Board board) {
-        Board.Color color;
+        PlayerColor color;
 
         System.out.println();
         System.out.println("Current board:");
@@ -44,9 +44,9 @@ public class ConsoleDisplay implements Display {
                 //check if the spot is marked.
 
                 color = board.getSquare(i, j);
-                if (color == Board.Color.EMPTY) {
+                if (color == PlayerColor.EMPTY) {
                     System.out.print("  | ");
-                } else if (color == Board.Color.BLACK) {
+                } else if (color == PlayerColor.BLACK) {
                     System.out.print("X | ");
                 } else {
                     System.out.print("O | ");
@@ -62,11 +62,11 @@ public class ConsoleDisplay implements Display {
         }
     }
 
-    public void noMoves(Board.Color color) {
-        if (color == Board.Color.BLACK) {
+    public void noMoves(PlayerColor color) {
+        if (color == PlayerColor.BLACK) {
             System.out.print("X: It's your move.");
             System.out.println();
-        } else if (color == Board.Color.WHITE) {
+        } else if (color == PlayerColor.WHITE) {
             System.out.print("O: It's your move.");
             System.out.println();
         } else {
@@ -76,14 +76,14 @@ public class ConsoleDisplay implements Display {
         //cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
     }
 
-    public void showMoves(Board.Color player, java.util.ArrayList<Point> list) {
+    public void showMoves(PlayerColor player, java.util.ArrayList<Point> list) {
 
         int row, col;
 
-        if (player == Board.Color.BLACK) {
+        if (player == PlayerColor.BLACK) {
             System.out.println("X: It's your move.");
             System.out.println("Your possible moves: ");
-        } else if (player == Board.Color.WHITE) {
+        } else if (player == PlayerColor.WHITE) {
             System.out.println("O: It's your move.");
             System.out.println("Your possible moves: ");
         } else {
@@ -107,18 +107,18 @@ public class ConsoleDisplay implements Display {
         System.out.print("Invalid input, please enter your move (row col): ");
     }
 
-    public void announceMove(Board.Color player, int row, int col) {
-        if (player == Board.Color.BLACK) {
+    public void announceMove(PlayerColor player, int row, int col) {
+        if (player == PlayerColor.BLACK) {
             System.out.println("X played (" + row + "," + col + ")");
-        } else if (player == Board.Color.WHITE) {
+        } else if (player == PlayerColor.WHITE) {
             System.out.println("O played (" + row + "," + col + ")");
         }
     }
 
-    public void announceNoMve(Board.Color player) {
-        if (player == Board.Color.BLACK) {
+    public void announceNoMve(PlayerColor player) {
+        if (player == PlayerColor.BLACK) {
             System.out.println("X has no moves");
-        } else if (player == Board.Color.WHITE) {
+        } else if (player == PlayerColor.WHITE) {
             System.out.println("O has no moves");
         }
     }

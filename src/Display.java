@@ -1,16 +1,16 @@
 public interface Display {
 
-    void announceWinner(Board.Color winner);
+    void announceWinner(PlayerColor winner);
 
     void showBoard(Board b);
 
-    void noMoves(Board.Color c);
+    void noMoves(PlayerColor c);
 
-    void showMoves(Board.Color player, java.util.ArrayList<Point> list);
+    void showMoves(PlayerColor player, java.util.ArrayList<Point> list);
 
     void invalidInput();
 
-    void announceMove(Board.Color player, int row, int col);
+    void announceMove(PlayerColor player, int row, int col);
 
-    void announceNoMve(Board.Color player);
+    void announceNoMve(PlayerColor player);
 }

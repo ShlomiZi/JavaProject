@@ -20,7 +20,7 @@ public class GameRunner {
         //play while at least one player can.
         while (player1.canPlay() || player2.canPlay()) {
             //make sure black play first.
-            if (player1.getColor() == Board.Color.BLACK) {
+            if (player1.getColor() == PlayerColor.BLACK) {
                 //play with player1.
                 played = player1.playMove();
                 board.put(player1.getColor(), played.getRow(), played.getColumn());
@@ -49,7 +49,7 @@ public class GameRunner {
             //print the board.
             display.showBoard(board);
             //check for winner.
-            Board.Color winner = rules.winner(board);
+            PlayerColor winner = rules.winner(board);
             display.announceWinner(winner);
         }
     }

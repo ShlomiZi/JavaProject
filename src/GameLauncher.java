@@ -15,8 +15,8 @@ public class GameLauncher {
         this.display = new ConsoleDisplay();
         //Mode playerMode = display->runMenu();
 
-        this.player1 = new LocalHumanPlayer(Board.Color.BLACK, board, rules, display);
-        this.player2 = new LocalHumanPlayer(Board.Color.WHITE, board, rules, display);
+        this.player1 = new LocalHumanPlayer(PlayerColor.BLACK, board, rules, display);
+        this.player2 = new LocalHumanPlayer(PlayerColor.WHITE, board, rules, display);
 
     }
 

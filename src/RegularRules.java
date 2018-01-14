@@ -23,7 +23,7 @@ public class RegularRules implements Rules {
      * @param c The player color.
      * @return The answer vector of possible moves.
      */
-    public java.util.ArrayList<Point> whereCanPut(Board b, Board.Color c) {
+    public java.util.ArrayList<Point> whereCanPut(Board b, PlayerColor c) {
         ArrayList<Point> moves = new ArrayList<Point>();
         //if end game.
         if (endGame) {
@@ -49,17 +49,17 @@ public class RegularRules implements Rules {
      *
      * @return The winner color.
      */
-    public Board.Color winner(Board b) {
-        int player1Score = getScore(Board.Color.BLACK, b);
-        int player2Score = getScore(Board.Color.WHITE, b);
+    public PlayerColor winner(Board b) {
+        int player1Score = getScore(PlayerColor.BLACK, b);
+        int player2Score = getScore(PlayerColor.WHITE, b);
 
         if (player1Score > player2Score) {
-            return Board.Color.BLACK;
+            return PlayerColor.BLACK;
         } else if (player2Score > player1Score) { //if player 2 wins.
-            return Board.Color.WHITE;
+            return PlayerColor.WHITE;
         }
         //tie.
-        return Board.Color.EMPTY;
+        return PlayerColor.EMPTY;
     }
 
     /**
@@ -69,7 +69,7 @@ public class RegularRules implements Rules {
      * @param b      The game board.
      * @return The score of the player.
      */
-    public int getScore(Board.Color player, Board b) {
+    public int getScore(PlayerColor player, Board b) {
         int score, i, j, bSize;
         score = 0;
         bSize = b.getSize();
@@ -101,15 +101,15 @@ public class RegularRules implements Rules {
     }
 
 
-    private void checkSurrounding(Board board, Board.Color player, int row, int col, ArrayList<Point> moves) {
+    private void checkSurrounding(Board board, PlayerColor player, int row, int col, ArrayList<Point> moves) {
         int size = board.getSize();
         int i, j;
 
-        Board.Color enemy;
-        if (player == Board.Color.BLACK) {
-            enemy = Board.Color.WHITE;
+        PlayerColor enemy;
+        if (player == PlayerColor.BLACK) {
+            enemy = PlayerColor.WHITE;
         } else {
-            enemy = Board.Color.BLACK;
+            enemy = PlayerColor.BLACK;
         }
 
         //up.
@@ -122,7 +122,7 @@ public class RegularRules implements Rules {
                 i--;
             }
             //if can put.
-            if (i >= 0 && board.getSquare(i, j) == Board.Color.EMPTY) {
+            if (i >= 0 && board.getSquare(i, j) == PlayerColor.EMPTY) {
                 moves.add(new Point(i, j));
             }
         }
@@ -137,7 +137,7 @@ public class RegularRules implements Rules {
                 j++;
             }
             //if can put.
-            if (i >= 0 && j < size && board.getSquare(i, j) == Board.Color.EMPTY) {
+            if (i >= 0 && j < size && board.getSquare(i, j) == PlayerColor.EMPTY) {
                 moves.add(new Point(i, j));
             }
         }
@@ -151,7 +151,7 @@ public class RegularRules implements Rules {
                 j++;
             }
             //if can put.
-            if (j < size && board.getSquare(i, j) == Board.Color.EMPTY) {
+            if (j < size && board.getSquare(i, j) == PlayerColor.EMPTY) {
                 moves.add(new Point(i, j));
             }
         }
@@ -166,7 +166,7 @@ public class RegularRules implements Rules {
                 j++;
             }
             //if can put.
-            if (i < size && j < size && board.getSquare(i, j) == Board.Color.EMPTY) {
+            if (i < size && j < size && board.getSquare(i, j) == PlayerColor.EMPTY) {
                 moves.add(new Point(i, j));
             }
         }
@@ -180,7 +180,7 @@ public class RegularRules implements Rules {
                 i++;
             }
             //if can put.
-            if (i < size && board.getSquare(i, j) == Board.Color.EMPTY) {
+            if (i < size && board.getSquare(i, j) == PlayerColor.EMPTY) {
                 moves.add(new Point(i, j));
             }
         }
@@ -195,7 +195,7 @@ public class RegularRules implements Rules {
                 j--;
             }
             //if can put.
-            if (i < size && j >= 0 && board.getSquare(i, j) == Board.Color.EMPTY) {
+            if (i < size && j >= 0 && board.getSquare(i, j) == PlayerColor.EMPTY) {
                 moves.add(new Point(i, j));
             }
         }
@@ -209,7 +209,7 @@ public class RegularRules implements Rules {
                 j--;
             }
             //if can put.
-            if (j >= 0 && board.getSquare(i, j) == Board.Color.EMPTY) {
+            if (j >= 0 && board.getSquare(i, j) == PlayerColor.EMPTY) {
                 moves.add(new Point(i, j));
             }
         }
@@ -224,7 +224,7 @@ public class RegularRules implements Rules {
                 j--;
             }
             //if can put.
-            if (i >= 0 && j >= 0 && board.getSquare(i, j) == Board.Color.EMPTY) {
+            if (i >= 0 && j >= 0 && board.getSquare(i, j) == PlayerColor.EMPTY) {
                 moves.add(new Point(i, j));
             }
         }
