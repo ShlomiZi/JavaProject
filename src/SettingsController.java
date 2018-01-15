@@ -1,26 +1,23 @@
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
-import java.util.ArrayList;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
-public class SettingsController implements java.io.Serializable{
+public class SettingsController implements java.io.Serializable {
+
+    private static final int SIZE = 8;
 
     private int size;
     private PlayerColor startingPlayer;
     private PlayerColor secondPlayer;
 
 
-    public SettingsController() throws IOException{
-
+    public SettingsController() throws IOException {
         File file = new File("settings.txt");
 
         ObjectInputStream is = null;
         try {
-            //opening and reaind the source file
+            //opening and reading the source file
             is = new ObjectInputStream(new FileInputStream(file));
             SettingsController temp = (SettingsController) is.readObject();
             //import the loaded file data to the current settings
@@ -70,6 +67,6 @@ public class SettingsController implements java.io.Serializable{
     }
 
     public void setSize() {
-        this.size = 8;
+        this.size = SIZE;
     }
 }

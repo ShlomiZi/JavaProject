@@ -1,11 +1,28 @@
-public class Main {
+import javafx.application.Application;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+
+import java.io.IOException;
+
+
+public class Main extends Application {
+
     public static void main(String[] args) {
-        //Launch the game.
-        GameLauncher gameLauncher = new GameLauncher();
-        //create game runner.
-        GameRunner game = new GameRunner(gameLauncher.getBoard(), gameLauncher.getPlayer1(), gameLauncher.getPlayer2(),
-                gameLauncher.getRules(), gameLauncher.getDisplay());
-        //run the game.
-        game.run();
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        primaryStage.setTitle("Reversi");
+        primaryStage.setScene(new Scene(root, 500, 350));
+        primaryStage.show();
     }
 }

@@ -1,11 +1,9 @@
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-import java.io.IOException;
-
 public class Board extends GridPane {
+
     //class members
     private int size;
     private Point lastPut;
