@@ -1,13 +1,17 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MenuController {
+
+public class MenuController implements Initializable {
 
     public void handleNewGame() {
         //Launch the game.
@@ -22,25 +26,29 @@ public class MenuController {
     }
 
     public void handleSettings(ActionEvent event) {
-        //set settings page.
-        Parent settingsPage = null;
         //try load settings fxml.
         try {
-            settingsPage = FXMLLoader.load(getClass().getResource("settings.fxml"));
+            Parent settingsPage = FXMLLoader.load(getClass().getResource("settings.fxml"));
+            Stage settingsStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            settingsStage.setScene(new Scene(settingsPage, 500, 350));
+            settingsStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Stage settingsStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        settingsStage.setScene(new Scene(settingsPage, 500, 350));
-        settingsStage.show();
-        try {
-            SettingsController sc = new SettingsController();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        /**
+         try {
+         SettingsController sc = new SettingsController();
+         } catch (IOException e) {
+         e.printStackTrace();
+         }**/
     }
 
     public void handleQuit() {
         System.exit(0);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

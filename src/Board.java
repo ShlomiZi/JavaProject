@@ -2,7 +2,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class Board extends GridPane {
+public class Board {
 
     //class members
     private int size;
@@ -53,6 +53,15 @@ public class Board extends GridPane {
                 this.board[i][j] = b.getSquare(i, j);
             }
         }
+    }
+
+    /**
+     * Set the board size.
+     *
+     * @param size The new board size.
+     */
+    public void setSize(int size) {
+        this.size = size;
     }
 
     /**
@@ -308,29 +317,6 @@ public class Board extends GridPane {
                     this.board[i1][j1] = player;
                     i1++;
                     j1--;
-                }
-            }
-        }
-    }
-
-    /**
-     * Draw the board.
-     */
-    public void draw() {
-        this.getChildren().clear();
-        int height = (int) this.getPrefHeight();
-        int cellRadius = (height / board.length) / 2;
-
-        //loop on the board.
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                //if cell is black.
-                if (board[i][j] == PlayerColor.BLACK) {
-                    this.add(new Circle(cellRadius, Color.BLACK), j, i);
-                }
-                //if cell is white.
-                else if (board[i][j] == PlayerColor.WHITE) {
-                    this.add(new Circle(cellRadius, Color.WHITE), j, i);
                 }
             }
         }

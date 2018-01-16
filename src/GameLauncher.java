@@ -13,11 +13,9 @@ public class GameLauncher {
         this.board = new Board(size);
         this.rules = new RegularRules();
         this.display = new ConsoleDisplay();
-        //Mode playerMode = display->runMenu();
 
         this.player1 = new LocalHumanPlayer(PlayerColor.BLACK, board, rules, display);
         this.player2 = new LocalHumanPlayer(PlayerColor.WHITE, board, rules, display);
-
     }
 
     public Rules getRules() {
